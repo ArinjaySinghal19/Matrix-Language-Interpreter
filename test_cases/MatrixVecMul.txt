@@ -1,0 +1,12 @@
+~:(~    MATRIX VECTOR MULTIPLY   ~:)~
+
+a := empty_mi 3 3;
+a := Input();
+
+x := empty_vi 3;
+x := Input();
+
+mul_matrix := x mivi* a;
+
+Print("Matrix Vector Multiplication Result:");
+Print(mul_matrix);

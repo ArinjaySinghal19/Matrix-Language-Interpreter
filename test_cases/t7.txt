@@ -1,0 +1,9 @@
+A := empty_mf 3 3;
+v := empty_fi 3;
+
+A := Input(t7_A.txt);
+v := Input(t7_v.txt);
+
+C := A mf+ v;
+
+Print(C);

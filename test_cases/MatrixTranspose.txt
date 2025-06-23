@@ -1,0 +1,20 @@
+~:(~ MATRIX TRANSPOSE ~:)~
+
+a := empty_mi 3 3;
+a := Input();
+
+b := empty_mi 3 3;
+
+
+for ( i := 0; i < mi#r a; i := i + 1 ) {
+    for ( j := 0; j < mi#c a; j := j + 1 ) {
+        b[j,i] := a[i,j];
+    }
+}
+
+Print(b);
+
+
+c := mi' a;
+
+Print(c);

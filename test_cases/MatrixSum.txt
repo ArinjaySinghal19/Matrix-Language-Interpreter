@@ -1,0 +1,27 @@
+~:(~ MATRIX SUM ~:)~
+
+
+a := empty_mi 3 3;
+b := empty_mi 3 3;
+
+a := Input();
+b := Input();
+
+c := empty_mi 3 3;
+
+for ( i := 0; i < mi#r a; i := i + 1 ) {
+    for ( j := 0; j < mi#c a; j := j + 1 ) {
+        c[i,j] := a[i,j] + b[i,j];
+    }
+}
+
+c := a mi+ b;
+
+for ( i := 0; i < mi#r c; i := i + 1 ) {
+    for ( j := 0; j < mi#c c; j := j + 1 ) {
+        e := c[i,j];
+        Print(e);
+    }
+    Print("\n");
+}
+

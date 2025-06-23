@@ -1,0 +1,20 @@
+~:(~ MATRIX INVERSE ~:)~
+
+a := empty_mi 2 2;
+a := Input();
+
+
+if ( mi|^| a != 0) then {
+    cofactor_matrix := empty_mi 2 2;
+    for (i := 0; i < 2; i := i + 1) {
+        for (j := 0; j < 2; j := j + 1) {
+            minor := minori a i j;
+            cofactor_matrix[i,j] := (-1)^(i+j) * (mi|^| minor);
+        }
+    }
+    adjoint_matrix := mi' cofactor_matrix;
+    inverse_matrix := (1 / (mi|^| a)) misi* adjoint_matrix;
+    Print(a);
+} else {
+    Print("Matrix is singular");
+}

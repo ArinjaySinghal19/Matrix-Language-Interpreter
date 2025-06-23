@@ -1,0 +1,70 @@
+~:(~    Control Flow - For Loop (for n x 3 matrix - where n is a fixed integer, say 5)        ~:)~
+
+a := empty_mi 5 3;
+a := Input();
+
+v := 3
+[1,1,1];
+
+for( i := 0 ; i < mi#r a ; i := i + 1 )
+{
+    for( j := 0 ; j < mi#c a ; j := j + 1 )
+    {
+        a[i, j] := a[i, j] + v[j];
+    }
+}
+
+Print(a);
+
+
+
+~:(~   Control Flow - While Loop    ~:)~
+
+b := empty_mi 5 5;
+b := Input(file_input.txt);
+
+sum_of_squares := 0;
+
+for( i:= 0; i < mi#r b; i := i + 1 )
+{
+    for( j:= 0; j < mi#c b; j := j + 1 )
+    {
+        sum_of_squares := sum_of_squares + b[i, j] * b[i, j];
+    }
+}
+
+norm_diff := (itf sum_of_squares) f^(0.5);
+threshold := 1e-6;
+
+while ( norm_diff f> threshold )
+{
+    b := b mi* b;
+    sum_of_squares := 0;
+
+    for( i:= 0; i < mi#r b; i := i + 1 )
+    {
+        for( j:= 0; j < mi#c b; j := j + 1 )
+        {
+            sum_of_squares := sum_of_squares + b[i, j] * b[i, j];
+        }
+    }
+
+    norm_diff := (itf sum_of_squares) f^(0.5) f- threshold;
+
+}
+
+Print(b);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

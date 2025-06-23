@@ -1,0 +1,19 @@
+vec := empty_fi 4;
+vec := Input(t3_v.txt);
+
+v := empty_mf 4 1;
+
+for (i := 0 ; i < 4 ; i := i + 1) {
+    v[i, 0] := vec[i];
+}
+
+sum_result := 0.0;
+
+for (i := 0 ; i < 4 ; i := i + 1) {
+    sum_result := sum_result f+ v[i, 0];
+}
+
+
+ans := 2.5 f* sum_result;
+
+Print(ans);

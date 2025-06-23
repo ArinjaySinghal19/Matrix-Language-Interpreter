@@ -1,0 +1,8 @@
+~:(~ MATRIX DETERMINANT ~:)~
+
+a := empty_mi 3 3;
+a := Input(file_input.txt);
+
+det := mi|^| a;
+
+Print(det);

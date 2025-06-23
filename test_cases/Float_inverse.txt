@@ -1,0 +1,29 @@
+~:(~ MATRIX INVERSE ~:)~
+
+a := empty_mi 2 2;
+a := Input(file_input.txt);
+
+
+if ( mi|^| a != 0) then {
+    cofactor_matrix := empty_mi 2 2;
+    for (i := 0; i < 2; i := i + 1) {
+        for (j := 0; j < 2; j := j + 1) {
+            minor := minori a i j;
+            cofactor_matrix[i,j] := (-1)^(i+j) * (mi|^| minor);
+        }
+    }
+    adjoint_matrix := mi' cofactor_matrix;
+    Print(adjoint_matrix);
+    float_inv := empty_mf 2 2;
+    int_inv := empty_mi 2 2;
+    for (i := 0; i < 2; i := i + 1) {
+        for (j := 0; j < 2; j := j + 1) {
+            float_inv[i,j] := (itf adjoint_matrix[i,j]) f/ (itf mi|^| a);
+            int_inv[i,j] := (adjoint_matrix[i,j]) / (mi|^| a);
+        }
+    }
+    Print(float_inv);
+    Print(int_inv);
+} else {
+    Print("Matrix is singular");
+}

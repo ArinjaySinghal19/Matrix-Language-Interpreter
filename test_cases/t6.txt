@@ -1,0 +1,9 @@
+A := empty_mf 3 4;
+B := empty_mf 5 2;
+
+A := Input(t6_A.txt);
+B := Input(t6_B.txt);
+
+C := A mf* B;
+
+Print(C);

@@ -1,0 +1,28 @@
+A := empty_mf 2 2;
+
+A := Input(t8_A.txt);
+
+if (mf|^| A f!= 0.0) then
+{
+    a := A;
+    cofactor_matrix := empty_mf 3 3;
+    for (i := 0; i < (mf#r a); i := i + 1) {
+        for (j := 0; j < (mf#c a); j := j + 1) {
+            minor := minorf a i j;
+            cofactor_matrix[i,j] := (itf -1) f^ (itf (i+j)) f* (mf|^| minor);
+        }
+    }
+    adjoint_matrix := mf' cofactor_matrix;
+    mul_fact := (itf 1) f/ (mf|^| a);
+    inverse_matrix := empty_mf 3 3;
+    for (i := 0; i < (mf#r a); i := i + 1) {
+        for (j := 0; j < (mf#c a); j := j + 1) {
+            inverse_matrix[i,j] := mul_fact f* adjoint_matrix[i,j];
+        }
+    }
+    Print(inverse_matrix);
+}
+else
+{
+    Print("MatrixNotInvertible");
+}

@@ -1,0 +1,22 @@
+~:(~    EIGENVALUES (2 x 2)     ~:)~
+
+a := empty_mi 2 2;
+a := Input();
+
+trace := a[0, 0] + a[1, 1];
+det := mi|^| a;
+
+~:(~    Characteristic polynomial: λ^2 - trace * λ + determinant = 0
+            Solving quadratic equation using discriminant    ~:)~
+
+D := trace*trace - 4 * det;
+
+if ( D >= 0) then
+{
+    eigenvalue1 := ( (itf trace) f+ (itf D)f^(0.5) ) f/ 2.0;
+    eigenvalue2 := ( (itf trace) f- (itf D)f^(0.5) ) f/ 2.0;
+}
+else{
+    Print("Complex eigenvalues");
+}
+

@@ -1,0 +1,28 @@
+~:(~    GAUSSIAN ELIMINATION   ~:)~
+
+
+a := empty_mi 3 3;
+a := Input(file_input.txt);
+x := 3
+[0,5,-1];
+
+
+if ( (mi|^| a) != 0) then
+{
+    det := mi|^| a;
+    cofactor_matrix := empty_mi 3 3;
+    for (i := 0; i < 3; i := i + 1) {
+        for (j := 0; j < 3; j := j + 1) {
+            minor := minori a i j;
+            cofactor_matrix[i,j] := (-1)^(i+j) * (mi|^| minor);
+        }
+    }
+    adjoint_matrix := mi' cofactor_matrix;
+    inverse_matrix := (1 / (mi|^| a)) misi* adjoint_matrix;
+    y := x mivi* inverse_matrix;
+    Print(y);
+}
+else
+{
+    Print("Matrix is singular");
+}

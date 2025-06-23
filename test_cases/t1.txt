@@ -1,0 +1,40 @@
+A := empty_mf 6 6;
+b := empty_fi 6;
+
+A := Input(t1_A.txt);
+b := Input(t1_b.txt);
+
+A_T := mf' A;
+A_TA := A_T mf* A;
+
+
+if (((mf|^| A_TA)) f!= 0.0 ) then {
+    a := A_TA;
+    cofactor_matrix := empty_mf 6 6;
+    for (i := 0; i < (mf#r a); i := i + 1) {
+        for (j := 0; j < (mf#c a); j := j + 1) {
+            minor := minorf a i j;
+            cofactor_matrix[i,j] := ((itf -1) f^ (itf (i+j))) f* ((mf|^| minor));
+        }
+    }
+    adjoint_matrix := mf' cofactor_matrix;
+    mul_fact := (itf 1) f/ ((mf|^| a));
+    inverse_matrix := empty_mf 6 6;
+    for (i := 0; i < (mf#r a); i := i + 1) {
+        for (j := 0; j < (mf#c a); j := j + 1) {
+            inverse_matrix[i,j] := mul_fact f* adjoint_matrix[i,j];
+        }
+    }
+    A_TA_inv := inverse_matrix;
+    b_mat := empty_mf 6 1;
+    for (i := 0; i < (mf#r b_mat); i := i + 1) {
+        b_mat[i,0] := b[i];
+    }
+    A_Tb := A_T mf* b_mat;
+    theta := A_TA_inv mf* A_Tb;
+    Print(theta);
+}
+else
+{
+    Print("MatrixNotInvertible");
+}
